@@ -28,6 +28,6 @@ Follow these steps to set up the environment:
 
 ## Docker Compose Configuration
 
-Customize the Docker Compose file for your specific requirements and use cases.
+Customize the Docker Compose file for your specific requirements and use cases. The base cluster is configured to require 6GB RAM. Your notebook will thank you for increasing the RAM allocated to Docker OOTB.
 
 ---
