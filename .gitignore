@@ -1,0 +1,69 @@
+### DevEnv ###
+
+_build
+
+# Intellij
+/src/intellij*/*.iml
+/src/intellij*/*.ipr
+/src/intellij*/*.iws
+**/.cache
+/.idea
+/.settings
+# Vscode
+/.vscode
+
+
+### Language Specific ###
+
+### Scala ###
+*.class
+*.log
+hs_err_pid*
+/lib/*.jar
+/test/files/codelib/*.jar
+/test/files/lib/*.jar
+/test/files/speclib/instrumented.jar
+/tools/*.jar
+/build.properties
+/buildcharacter.properties
+/jenkins.properties
+/build/
+/qbin
+/target/
+/project/**/target/
+/test/macro-annot/target/
+/test/files/target/
+/test/target/
+/build-sbt/
+local.sbt
+jitwatch.out
+/build-restarr/
+/target-restarr/
+.metals
+.bloop
+project/**/metals.sbt
+.bsp
+/out/
+/bin/
+/sandbox/
+
+# Python3
+__pycache__/
+*/venv
+*/venv*
+*/__pycache__
+**/__pycache__
+**/.ipynb_checkpoints
+
+# Scala3
+*.tasty
+
+# Java
+*.class
+
+# Golang
+*.exe
+*.dll
+*.so
+*.dylib
+bin/
