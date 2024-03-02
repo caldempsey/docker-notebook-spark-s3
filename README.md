@@ -1,6 +1,8 @@
 # DockerNotebookSparkS3
 
-This repository provides a local experimental environment for data lakes and mock blob storage, leveraging PySpark and Spark clusters. It allows you to mimic Blob Storage locally and manage it with an Jupyter Notebook connected to a Spark Cluster closely emulating a real but simple environment. This setup supports automated `mvn` dependency management, pulling artefacts for spark e.g. Databricks [delta lake](https://delta.io) support directly into the Spark jars without network requests, providing an effective template for the CI deployment for data processing pipelines and analytics in a secure or controlled setting.
+This repository provides a local experimental environment for data lakes and mock blob storage, leveraging PySpark and Spark clusters. It allows you to mimic Blob Storage locally and manage it with an Jupyter Notebook connected to a Spark Cluster closely emulating a real but simple environment. 
+
+This setup uses `mvn` to pull artefacts and transitive dependencies for Spark, e.g. [Databricks Delta Lake](https://delta.io), directly into the Spark's jars without network requests, providing an effective template for the CI deployment for data processing pipelines and analytics in a secure or controlled setting.
 
 Effortlessly dive in and unleash your data's potential, today!
 
