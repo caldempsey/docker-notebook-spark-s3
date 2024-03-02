@@ -1,20 +1,11 @@
-# Define aliases
-describe := help
-init := build
-setup := build
-list := help
-deploy-local := deploy
-start := deploy
-
 # Lists available commands
 help:
 	@echo "Available commands:"
-	@echo "describe   - Shows available commands"
-	@echo "init       - Initializes environment (builds Spark and notebook Docker images)"
-	@echo "setup      - Alias for 'init'"
-	@echo "list       - Alias for 'help'"
-	@echo "deploy-local - Deploys locally"
-	@echo "start      - Alias for 'deploy-local'"
+	@echo "help             - Shows available commands"
+	@echo "build            - Initializes environment (downloads dependencies via mvn, builds Spark and notebook Docker images)"
+	@echo "onboard          - Automated onbaording workflow to check installed dependencies"
+	@echo "clean-deploy     - Deploys locally"
+	@echo "deploy           - Deletes all user containers then deploys locally"
 
 # Onboarding workflow
 onboard:
@@ -27,8 +18,16 @@ build:
 	./infra-scripts/build_notebook_docker.sh
 
 deploy:
+	make build
+	mkdir -p notebook-data-lake/src
+	mkdir -p notebook-data-lake/data
+	chmod -R 777 ./notebook-data-lake/src
+	chmod -R 777 ./notebook-data-lake/data
+	cd infra-data-lake/localhost && docker-compose up
+
+clean-deploy:
 	docker rm -f $$(docker ps -a -q) || true
-	just build
+	make build
 	mkdir -p notebook-data-lake/src
 	mkdir -p notebook-data-lake/data
 	chmod -R 777 ./notebook-data-lake/src
