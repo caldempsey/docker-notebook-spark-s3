@@ -31,8 +31,8 @@ Use `make` or follow these steps to set up the environment via Just:
 
 Commands should be run from the root of the repository or using Just.
 
-## Docker Compose Configuration
+## Configuration
 
-Customize the Docker Compose file for your specific requirements and use cases.
+Customize the template for your specific requirements and use cases.
 
 Happy Coding! ✨
