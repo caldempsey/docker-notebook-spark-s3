@@ -1,4 +1,4 @@
-name: localhost
+name: localhost/build
 
 on:
   push:
