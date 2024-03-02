@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Setup Docker Build
+        run: |
+          docker build -t ci-base -f infra-data-lake/ci/Dockerfile .
+      
+      - name: Build Docker images and deploy
+        run: |
+          make build
+          make deploy
