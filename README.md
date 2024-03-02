@@ -1,3 +1,5 @@
+![localhost/build](https://github.com/caldempsey/docker-notebook-spark-s3/actions/workflows/localhost_build.yml/badge.svg)
+
 # DockerNotebookSparkS3
 
 This repository provides a local experimental environment for data lakes and mock blob storage, leveraging PySpark and Spark clusters. It allows you to mimic Blob Storage locally and manage it with an Jupyter Notebook connected to a Spark Cluster closely emulating a real but simple environment. 
