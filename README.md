@@ -14,7 +14,7 @@ Effortlessly dive in and unleash your data's potential, today!
 
 ## Getting Started
 
-Follow these steps to set up the environment:
+Use `make` or follow these steps to set up the environment via Just:
 
 1. Clone this repository.
 2. Ensure Docker is installed.
@@ -34,3 +34,5 @@ Commands should be run from the root of the repository or using Just.
 ## Docker Compose Configuration
 
 Customize the Docker Compose file for your specific requirements and use cases.
+
+Happy Coding! ✨
