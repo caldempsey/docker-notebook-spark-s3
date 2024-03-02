@@ -1,7 +1,7 @@
 version: '3'
 services:
   spark:
-    image: docker.io/bitnami/spark:3.5
+    image: orgname/data_lake_spark:latest
     environment:
       - SPARK_MODE=master
       - SPARK_RPC_AUTHENTICATION_ENABLED=no
@@ -13,18 +13,18 @@ services:
       - '8080:8080'
       - '7077:7077'
     volumes:
-      - ../../notebook-data-lake/data:/data
-      - ../../notebook-data-lake/src:/src
+      - ./../../notebook-data-lake/data:/data
+      - ./../../notebook-data-lake/src:/src
 
-  spark-worker:
-    image: docker.io/bitnami/spark:3.5
+  spark-worker-1:
+    image: orgname/data_lake_spark:latest
     environment:
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark:7077
       - SPARK_WORKER_MEMORY=1G
       - SPARK_WORKER_CORES=1
       - SPARK_RPC_AUTHENTICATION_ENABLED=no
-      - SPARK_RPC_ENCRYPTION_ENABLED=noinfra-mock-blob-storage
+      - SPARK_RPC_ENCRYPTION_ENABLED=false
       - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
       - SPARK_SSL_ENABLED=no
       - SPARK_NO_DAEMONIZE=true
@@ -32,9 +32,24 @@ services:
       - ./../../notebook-data-lake/data:/data
       - ./../../notebook-data-lake/src:/src
 
+  spark-worker-2:
+    image: orgname/data_lake_spark:latest
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark:7077
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_WORKER_CORES=1
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=false
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+      - SPARK_NO_DAEMONIZE=true
+    volumes:
+      - ./../../notebook-data-lake/data:/data
+      - ./../../notebook-data-lake/src:/src
 
   jupyter:
-    image: jupyter/pyspark-notebook:spark-3.5.0
+    image: orgname/data_lake_notebook:latest
     environment:
       - JUPYTER_ENABLE_LAB=yes
       - JUPYTER_TOKEN=canttouchthis
@@ -44,8 +59,8 @@ services:
     ports:
       - '8890:8888'
     volumes:
-      - ./../../infra-mock-blob-storage:/home/jovyan/mock-azure-blob-storage
+      - ./../../notebook-data-lake/data:/data
+      - ./../../infra-mock-blob-storage:/home/jovyan/mock-blob-storage
       - ./../../notebook-data-lake/notebooks:/home/jovyan/notebooks
       - ./../../notebook-data-lake/data:/home/jovyan/data
-      - ./../../notebook-data-lake/src:/home/jovyan/src
-      - ./../../notebook-data-lake/work:/home/jovyan/work
+      - ./../../notebook-data-lake/src:/home/jovyan/src 
