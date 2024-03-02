@@ -1,9 +1,4 @@
 ### DevEnv ###
-
-infra-mock-blob-storage
-notebook-data-lake/src
-notebook-data-lake/data
-notebook-data-lake/work
 _build
 infra-mock-blob-storage
 notebook-data-lake/src
