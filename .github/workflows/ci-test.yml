@@ -1,4 +1,4 @@
-name: CI
+name: localhost
 
 on:
   push:
@@ -13,14 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out code
+      - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Setup Docker Build
+      - name: Build and deploy (localhost)
         run: |
-          docker build -t ci-base -f infra-data-lake/ci/Dockerfile .
-      
-      - name: Build Docker images and deploy
-        run: |
-          make build
-          make deploy
+          make deploy DOCKER_COMPOSE_ARGS=-d
+          make healthcheck ENV=localhost
