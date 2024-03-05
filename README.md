@@ -29,7 +29,7 @@ Use `make` or follow these steps to set up the environment via Just:
 ## Repository Structure
 
 - `infra-data-lake/localhost`: Delta Lake and notebooks for local connectivity.
-- `infra-mock-blob-storage`: Local mock for Azure Blob Storage.
+- `infra-mock-blob-storage`: Local mock for Blob Storage.
 - `notebook-data-lake`: Contains notebooks for data exploration and analysis.
 
 Commands should be run from the root of the repository or using Just.
