@@ -48,6 +48,7 @@ services:
     ports:
       - '8890:8888'
     volumes:
+      - ./../../notebook-data-lake/data:/data
       - ./../../infra-mock-blob-storage:/home/jovyan/mock-blob-storage
       - ./../../notebook-data-lake/notebooks:/home/jovyan/notebooks
       - ./../../notebook-data-lake/data:/home/jovyan/data
