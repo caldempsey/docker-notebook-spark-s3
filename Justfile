@@ -24,7 +24,7 @@ healthcheck env:
 	./infra-scripts/health_check.sh {{env}}
 
 # deploys to a local environment, passes arguments to docker-compose
-deploy args:
+deploy *args:
     docker rm -f $(docker ps -a -q) || true
     just build
     mkdir -p notebook-data-lake/src

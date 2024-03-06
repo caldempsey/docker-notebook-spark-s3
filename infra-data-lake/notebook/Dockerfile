@@ -31,4 +31,5 @@ ENV PATH=$PATH:$SPARK_HOME/bin
 RUN pip install findspark
 
 # Install PySpark
-RUN pip install pyspark
+RUN pip install pyspark==3.5.1 
+RUN pip install delta-spark==3.1.0
