@@ -12,7 +12,7 @@ Effortlessly dive in and unleash your data's potential, today!
 
 - **Mock Blob Storage**: Mimics Blob Storage locally, enabling seamless integration with notebooks.
 - **Spark Cluster**: Configured with Docker containers for distributed computing tasks and large-scale dataset processing. Dependencies are managed via the `infra-data-lake` pom file and pulled onto the repository via `mvn`-based bash `get_spark_deps.sh`.
-- **PySpark Notebooks**: Jupyter notebooks for interactive data exploration and analysis. These run in [driver or cluster mode](https://spark.apache.org/docs/latest/cluster-overview.html). There's an (issue ticket open to implement Client/Cluster asynchronous programming)[https://github.com/caldempsey/docker-notebook-spark-s3/issues/3], and goes into some detail on what tools you need to enable this.
+- **PySpark Notebooks**: Jupyter notebooks for interactive data exploration and analysis. These run in [driver or cluster mode](https://spark.apache.org/docs/latest/cluster-overview.html). There's an issue ticket open to implement Client/Cluster asynchronous programming (https://github.com/caldempsey/docker-notebook-spark-s3/issues/3), describing the tools needed to enable this.
 - **CI/CD Heath Checks:** Implemented using bash, GitHub Actions, and Docker Compose, CI health checks ensure services are built, up, and healthy before merging to a protected main.
 
 ## Getting Started
